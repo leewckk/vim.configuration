@@ -69,7 +69,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 " 使用空格代替制表符
-"set noexpandtab
+set expandtab
 set noet
 " 在行和段开始处使用制表符
 set smarttab
@@ -181,7 +181,7 @@ func SetTitle()
 		call append(line(".")+1, "	* Author: liwenchao") 
 		call append(line(".")+2, "	* Mail: liwenchao@megvii.com") 
     call append(line(".")+3, "	* Created Time: ".strftime("%Y-%m-%d %H:%M:%S")) 
-		call append(line(".")+4, "	* Copyright (C) Face++ 2000 - 2018. All right recerved.") 
+		call append(line(".")+4, "	* Copyright (C) Face++ 2018 - 2088. All right recerved.") 
 		call append(line(".")+5, "  * ") 
 		call append(line(".")+6, "  * history") 
     call append(line(".")+7, "  *   1.Date          : ".strftime("%Y-%m-%d %H:%M:%S")) 
@@ -202,7 +202,25 @@ func SetTitle()
 	if expand("%:e") == 'h'
 		call append(line(".")+12, "#ifndef _".toupper(expand("%:r"))."_H")
 		call append(line(".")+13, "#define _".toupper(expand("%:r"))."_H")
-		call append(line(".")+14, "#endif")
+
+		call append(line(".")+14, "")
+    call append(line(".")+15, "#ifdef __cplusplus")
+		call append(line(".")+16, "#if __cplusplus")
+		call append(line(".")+17, "extern \"C\" {")
+		call append(line(".")+18, "#endif")
+		call append(line(".")+19, "#endif")
+		
+    call append(line(".")+20, "")
+		call append(line(".")+21, "")
+
+    call append(line(".")+22, "#ifdef __cplusplus")
+		call append(line(".")+23, "#if __cplusplus")
+		call append(line(".")+24, "}")
+		call append(line(".")+25, "#endif")
+		call append(line(".")+26, "#endif")
+    call append(line(".")+27, "")
+    call append(line(".")+28, "")
+    call append(line(".")+29, "#endif")
 	endif
 	if &filetype == 'java'
 		call append(line(".")+12,"public class ".expand("%:r"))
@@ -212,7 +230,23 @@ func SetTitle()
 endfunc 
 autocmd BufNewFile * normal G
 
+func SourceTypeCheck()
+if expand("%:e") == 'cpp'
+  let g:DoxygenToolkit_briefTag_funcName="yes"
+  let g:DoxygenToolkit_commentType="C++"
+  let g:DoxygenToolkit_classTag = "@class"
+  exec ":Dox"
+endif 
+if expand("%:e") == 'c'
+  let g:DoxygenToolkit_briefTag_funcName="Yes"
+  let g:DoxygenToolkit_commentType="C"
+  exec ":Dox"
+endif 
+endfunc
 
+func SourceTypeCheck0()
+  exec ":Dox"
+endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,7 +260,8 @@ map <C-A> ggVG$"+y
 map <Esc><Esc> :w<CR>
 map <F12> gg=G
 map <C-w> <C-w>w
-map <C-f> :Dox<CR>
+map <C-f> :call SourceTypeCheck()<CR>
+"map <C-f> :Dox<CR>
 imap <C-k> <C-y>,
 imap <C-t> <C-q><TAB>
 imap <C-j> <ESC>
@@ -314,6 +349,7 @@ func FormartSrc()
     exec "e! %"
 endfunc
 "结束定义FormartSrc
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -540,14 +576,14 @@ let g:DoxygenToolkit_blockFooter=""
 let g:DoxygenToolkit_authorName="liwenchao@megvii.com"
 
 let s:licenseTag = "\<enter>" 
-let s:licenseTag = s:licenseTag . "Call Center On Demand Product Series\<enter>"
-let s:licenseTag = s:licenseTag . "Copyright (C) 2015 ChannelSoft(Beijing.) Technology Ltd., Co.\<enter>"
+let s:licenseTag = s:licenseTag . "\<enter>"
+let s:licenseTag = s:licenseTag . "Copyright (C) 2018 FACE++ (Beijing.) Technology Ltd., Co.\<enter>"
 let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
 let s:licenseTag = s:licenseTag . "\<enter>"
 let s:licenseTag = s:licenseTag . "$$\<enter>"
 let s:licenseTag = s:licenseTag . "TODO:\<enter>"
 let s:licenseTag = s:licenseTag . "\<enter>"
-let s:licenseTag = s:licenseTag . "*******************************************************/"
+"let s:licenseTag = s:licenseTag . "*******************************************************/"
 let g:DoxygenToolkit_licenseTag = s:licenseTag 
 let g:DoxygenToolkit_compactDoc="no"
 
