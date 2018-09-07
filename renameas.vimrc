@@ -119,7 +119,7 @@ func FunTitle()
 		call append(line(".")+1, "//<--") 
 		call append(line(".")+2, "//  @Function: ") 
 		call append(line(".")+3, "//  @Author: liwenchao") 
-		call append(line(".")+4, "//  @Mail: liwenchao@megvii.com") 
+		call append(line(".")+4, "//  @Mail: leewckk@126.com") 
     call append(line(".")+5, "//  @Created Time: ".strftime("%Y-%m-%d %H:%M")) 
     call append(line(".")+6, "//  @Brief: ") 
 		call append(line(".")+7, "//  ") 
@@ -136,7 +136,7 @@ func FunTitle()
 		call append(line(".")+1, "/**") 
 		call append(line(".")+2, "	* @Function: ") 
 		call append(line(".")+3, "	* @Author: liwenchao") 
-		call append(line(".")+4, "	* @Mail: liwenchao@megvii.com") 
+		call append(line(".")+4, "	* @Mail: leewckk@126.com") 
     call append(line(".")+5, "	* @Created Time: ".strftime("%Y-%m-%d %H:%M")) 
     call append(line(".")+6, "	* @Brief: ") 
 		call append(line(".")+7, "  * ") 
@@ -179,9 +179,9 @@ func SetTitle()
 		call setline(1, "/**") 
 		call append(line("."), "	* File Name: ".expand("%")) 
 		call append(line(".")+1, "	* Author: liwenchao") 
-		call append(line(".")+2, "	* Mail: liwenchao@megvii.com") 
+		call append(line(".")+2, "	* Mail: leewckk@126.com") 
     call append(line(".")+3, "	* Created Time: ".strftime("%Y-%m-%d %H:%M:%S")) 
-		call append(line(".")+4, "	* Copyright (C) Face++ 2018 - 2088. All right recerved.") 
+		call append(line(".")+4, "	* ") 
 		call append(line(".")+5, "  * ") 
 		call append(line(".")+6, "  * history") 
     call append(line(".")+7, "  *   1.Date          : ".strftime("%Y-%m-%d %H:%M:%S")) 
@@ -573,18 +573,18 @@ let g:DoxygenToolkit_blockTag="@Block:"
 let g:DoxygenToolkit_templateParamTag_pre="@param"
 let g:DoxygenToolkit_blockHeader=""
 let g:DoxygenToolkit_blockFooter="" 
-let g:DoxygenToolkit_authorName="liwenchao@megvii.com"
+let g:DoxygenToolkit_authorName="leewckk@126.com"
 
-let s:licenseTag = "\<enter>" 
-let s:licenseTag = s:licenseTag . "\<enter>"
-let s:licenseTag = s:licenseTag . "Copyright (C) 2018 FACE++ (Beijing.) Technology Ltd., Co.\<enter>"
-let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
-let s:licenseTag = s:licenseTag . "\<enter>"
-let s:licenseTag = s:licenseTag . "$$\<enter>"
-let s:licenseTag = s:licenseTag . "TODO:\<enter>"
-let s:licenseTag = s:licenseTag . "\<enter>"
-"let s:licenseTag = s:licenseTag . "*******************************************************/"
-let g:DoxygenToolkit_licenseTag = s:licenseTag 
+"let s:licenseTag = "\<enter>" 
+"let s:licenseTag = s:licenseTag . "\<enter>"
+"let s:licenseTag = s:licenseTag . "Copyright (C) 2018 FACE++ (Beijing.) Technology Ltd., Co.\<enter>"
+"let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
+"let s:licenseTag = s:licenseTag . "\<enter>"
+"let s:licenseTag = s:licenseTag . "$$\<enter>"
+"let s:licenseTag = s:licenseTag . "TODO:\<enter>"
+"let s:licenseTag = s:licenseTag . "\<enter>"
+"let g:DoxygenToolkit_licenseTag = s:licenseTag 
+
 let g:DoxygenToolkit_compactDoc="no"
 
 let g:doxygen_enhanced_color=1
