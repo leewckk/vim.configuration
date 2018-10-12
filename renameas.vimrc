@@ -1,7 +1,3 @@
-"set sw=4
-"A
-"set ts=4
-"set et
 set smarttab
 set smartindent
 set lbr
@@ -12,7 +8,6 @@ set wildmenu
 set mousemodel=popup
 set sw=2
 set ts=2
-set noet
 
 au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
 au FileType css setlocal dict+=~/.vim/dict/css.dict
@@ -70,7 +65,6 @@ set softtabstop=2
 set shiftwidth=2
 " 使用空格代替制表符
 set expandtab
-set noet
 " 在行和段开始处使用制表符
 set smarttab
 " 显示行号
